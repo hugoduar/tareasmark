@@ -21,7 +21,7 @@
     </head>
     <body>
 <form action="Login" method="post" id="flogin">
-    <h1>Hola.</h1>
+    <h1>Hola</h1>
     <input type="text" placeholder="Usuario" name="usuario"/> 
     <input type="password" placeholder="Contraseña" name="password"/>
     <input type="submit" value="Entrar" name="enviar" id="login"/>
