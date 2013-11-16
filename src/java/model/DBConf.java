@@ -9,20 +9,30 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConf {
-
+    /*
+     * Configuracion para la conexion a la base de datos
+     * "MONGODB"
+     */
+    public static final String dbMongo = "tareasmark";
+    public static final String ipMongo = "localhost";
+    public static final String userMongo = "gauss";
+    public static final String pwdMongo = "gauss";
+    public static final int portMongo = 27017;
+     /*
+     * Configuracion para la conexion a la base de datos
+     * "MYSQL"
+     */
+    public static final String dbMysql = "tareasmark";
+    public static final String ipMysql = "localhost";
+    public static final String userMysql = "gauss";
+    public static final String pwdMysql = "gauss";
+    public static final int portMysql = 3306;
     public DBConf() {
     }
     public MongoClient getMongoClient(){
-        //Default config
-
-	String dbName = "tareasmark";
-	String remoteAd = "localhost";
-	int port = 27017;
-
-	//Default config
          MongoClient mc = null;
         try{
-             mc = new MongoClient(remoteAd, port);
+             mc = new MongoClient(ipMongo, portMongo);
             
 	}catch(Exception e){
             e.printStackTrace();
@@ -32,9 +42,8 @@ public class DBConf {
     public DB getMongoDB(MongoClient mc){
 	//Default config
 
-	String dbName = "tareasmark";
-	String remoteAd = "localhost";
-	int port = 27017;
+	String dbName = dbMongo;
+	String remoteAd = ipMongo;
 
 	//Default config
 
@@ -51,12 +60,12 @@ public class DBConf {
     public Connection getMysqlCon() throws ClassNotFoundException, SQLException{
         Connection con = null;
         //DefaultConfig
-	String URL = "jdbc:mysql://localhost:3306/tareasmark";  
+	String URL = "jdbc:mysql://localhost:"+String.valueOf(portMysql)+"/"+dbMysql;  
         String userName = "root";                               
         String password = "n0m3l0";      
          //DefaultConfig
         Class.forName("com.mysql.jdbc.Driver");                 
-        con = (Connection) DriverManager.getConnection(URL,userName,password);
+        con = (Connection) DriverManager.getConnection(URL,userMysql,pwdMysql);
         System.out.println("Conectado a la base de datos");
         return con;
     }

@@ -86,6 +86,28 @@ public class LoginFilter implements Filter {
         if(session.getAttribute("auth")==null){
             session.setAttribute("auth", false);
         }
+        Cookie cookies[] = request.getCookies();
+        if(cookies!=null)
+        for (Cookie cookie: cookies) {
+            if(cookie.getName().equals(CookiesCodes.CS)){
+                ReadUsuario ru = new ReadUsuario();
+                HttpSession ses = request.getSession();
+                Boolean sesE = (Boolean) ses.getAttribute("auth");
+                //System.out.println("Redirect to home.jsp...");
+                boolean exists = ru.tokenExist(cookie.getValue());
+                if(exists){
+                    response.sendRedirect("profesor/home.jsp");
+                    //System.out.println("Redirect to home.jsp");
+                }else if(sesE){
+                    
+                    //wrappedResponse.sendRedirect("profesor/home.jsp");
+                }
+                else {
+                    //wrappedResponse.sendRedirect("index.jsp");
+                }
+                
+            }
+        }
     }    
     
     private void doAfterProcessing(RequestWrapper request, ResponseWrapper response)
@@ -188,27 +210,7 @@ public class LoginFilter implements Filter {
             }
             sendProcessingError(problem, response);
         }
-        Cookie cookies[] = wrappedRequest.getCookies();
-        for (Cookie cookie: cookies) {
-            if(cookie.getName().equals(CookiesCodes.CS)){
-                ReadUsuario ru = new ReadUsuario();
-                HttpSession ses = wrappedRequest.getSession();
-                Boolean sesE = (Boolean) ses.getAttribute("auth");
-                //System.out.println("Redirect to home.jsp...");
-                boolean exists = ru.tokenExist(cookie.getValue());
-                if(exists){
-                    wrappedResponse.sendRedirect("profesor/home.jsp");
-                    //System.out.println("Redirect to home.jsp");
-                }else if(sesE){
-                    
-                    //wrappedResponse.sendRedirect("profesor/home.jsp");
-                }
-                else {
-                    //wrappedResponse.sendRedirect("index.jsp");
-                }
-                
-            }
-        }
+        
     }
 
     /**
