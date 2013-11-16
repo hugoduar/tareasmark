@@ -1,0 +1,26 @@
+{
+    "lista_tareas":[{
+            "id":1,
+            "titulo":"Tarea 1",
+            "descripcion":"Hacer un algoritmo",
+            "fecha":"05-09-2013",
+            "nombre_alumno":"Fernando",
+            "grupo":"5IV7"
+    },
+{
+            "id":2,
+            "titulo":"Tarea 1",
+            "descripcion":"Hacer un algoritmo",
+            "fecha":"05-09-2013",
+            "nombre_alumno":"Fernando",
+            "grupo":"5IV7"
+    },
+{
+            "id":3,
+            "titulo":"Tarea 1",
+            "descripcion":"Hacer un algoritmo",
+            "fecha":"05-09-2013",
+            "nombre_alumno":"Fernando",
+            "grupo":"5IV7"
+    }]
+}
