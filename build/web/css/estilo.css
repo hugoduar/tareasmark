@@ -1,0 +1,325 @@
+body {
+  font-family: 'Helvetica', sans-serif;
+  height: 100%;
+  overflow: hidden;
+  background: url('../img/bg.png');
+  background-size: cover;
+  position: static;
+  width: 100%;
+  right: -2.5%;
+  left: -2.5%;
+  top: -2.5%;
+  bottom: -2.5%;
+  z-index: -1;
+}
+
+
+h1{
+  color: rgba(255, 255, 255, 0.99);
+  font-family: 'Helvetica', cursive;
+  font-size: 5em;
+  margin: 0.5em;
+  text-align: center;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+#dform{
+position: absolute;
+top: 50%;
+left: 40%;
+margin: -150px 0 0 -150px;
+width:400px;
+height:300px;
+}
+
+#dform input[type="submit"]{
+background-color: rgba(40, 105, 200, 0.8);
+color: #fff;
+height: 40px;
+width:420px;
+text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+-webkit-font-smoothing: subpixel-antialiased;
+border-radius: 0px;
+}
+#dform input[type="submit"]:hover{
+ background: #2869c8;   
+}
+#form input:focus{
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+}
+
+#form input{
+width: 100%; 
+margin-bottom: 10px; 
+background: rgba(0,0,0,0.3);
+border: none;
+outline: none;
+padding: 10px;
+font-size: 13px;
+color: #fff;
+text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+border: 1px solid rgba(0,0,0,0.3);
+border-radius: 4px;
+box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+-webkit-transition: box-shadow .5s ease;
+-moz-transition: box-shadow .5s ease;
+-o-transition: box-shadow .5s ease;
+-ms-transition: box-shadow .5s ease;
+transition: box-shadow .5s ease;
+}
+#flogin, .email-details, section {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 0 1em rgba(0, 0, 0, 0.6), 0 3px 4px -1px rgba(0, 0, 0, 0.4);
+  border: 0.5em solid rgba(255, 255, 255, 0.4);
+  border-radius: 1em;
+  transform: translateZ(0);
+}
+
+#login{
+background: rgba(40, 105, 200, 0.8);
+  border: 0;
+  color: #fff;
+  font-size: 1.3em;
+  height: 3em;
+  margin-left: 10%;
+  margin-top: 1.5em;
+  width: 80%;
+}
+#login:hover{
+background: #2869c8;
+}
+form button:hover, section button:hover{
+  background: #2869c8;
+}
+
+#flogin {
+  height: 30em;
+  left: 50%;
+  margin-left: -11em;
+  margin-top: 8em;
+  position: absolute;
+  width: 22em;
+}
+form input {
+border: 0;
+font-size: 1.5em;
+margin-left: 10%;
+margin-top: .5em;
+width: 80%;
+height: 2em;
+}
+form button{
+  margin-left: 10%;
+  margin-top: 1.5em;
+  width: 80%;
+}
+#profform{
+font-size: .8em;
+margin-left: 53%;
+ color:white;
+ text-shadow: 
+     -1px -1px 0 #000, 
+     1px -1px 0 #000, 
+     -1px 1px 0 #000, 
+     1px 1px 0 #000;
+ 
+  width: 80%;
+  height: 2em;
+  text-decoration: none;
+}
+
+aside {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  left: -30%;
+  opacity: 0;
+  position: absolute;
+  width: 25%;
+}
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+aside ul li {
+  border-left: 0.6em solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1.2em;
+  height: 3em;
+  line-height: 2.8;
+  padding-left: 1em;
+  position: relative;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3), -1px -1px 4px rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+aside ul li:hover {
+  border-left: 0.6em solid rgba(255, 255, 255, 0.99);
+}
+aside ul li span {
+  background: #2869c8;
+  float: right;
+  line-height: 2;
+  margin-right: 1em;
+  margin-top: 0.4em;
+  height: 2em;
+  text-align: center;
+  width: 2em;
+}
+aside ul .active {
+  border-left: 0.6em solid rgba(40, 105, 200, 0.8);
+}
+aside ul .active:hover {
+  border-left: 0.6em solid #2869c8;
+}
+
+.email-details {
+  height: 9em;
+  opacity: 0;
+  padding-top: 1.2em;
+  position: absolute;
+  right: 5%;
+  top: -10em;
+  width: 65%;
+}
+.email-details label {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  float: left;
+  height: 2em;
+  line-height: 2.1;
+  margin: 0.4em;
+  margin-left: 5%;
+  margin-right: 0;
+  padding-left: 1em;
+  width: 20%;
+}
+.email-details input{
+  float: right;
+  height: 2em;
+  margin: 0.4em;
+  margin-right: 5%;
+  margin-left: 0;
+  width: 70%;
+}
+
+section {
+  min-height: 30em;
+  max-width: 60em;
+  opacity: 0;
+  position: absolute;
+  right: -70%;
+  top: 11.2em;
+  width: 65%;
+}
+section [class*="icon-"] {
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  font-size: 1.5em;
+  height: 1.5em;
+  line-height: 1.4;
+  margin: 0.4em;
+  margin-left: 0;
+  text-align: center;
+  transition: 0.4s border ease-in-out,0.4s color ease-in-out;
+  width: 1.5em;
+}
+section [class*="icon-"]:hover {
+  border-color: #2869c8;
+  color: #2869c8;
+}
+section ul li {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.3em;
+}
+section textarea {
+  height: 18em;
+  margin-left: 5%;
+  position: relative;
+  width: 90%;
+}
+section button {
+  float: right;
+  margin-bottom: 1.6em;
+  margin-right: 5%;
+  margin-top: 0.6em;
+  width: 30%;
+}
+
+.complete {
+  animation: 1s fadeout ease-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: scale(2);
+}
+
+.subject-slide {
+  animation: 0.5s subject-slide ease-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: backwards;
+  opacity: 1;
+  top: 1.5em;
+}
+
+.aside-slide {
+  animation: 0.5s aside-slide ease-out;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+  opacity: 1;
+  left: 0;
+}
+
+.section-slide {
+  animation: 1s section-slide ease-out;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
+  opacity: 1;
+  right: 5%;
+}
+
+@keyframes subject-slide {
+  0% {
+    top: -10em;
+  }
+
+  100% {
+    top: 1.5em;
+  }
+}
+
+@keyframes aside-slide {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes section-slide {
+  0% {
+    right: -70%;
+  }
+
+  100% {
+    right: 5%;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
