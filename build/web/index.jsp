@@ -24,44 +24,10 @@
     <h1>Hola</h1>
     <input type="text" placeholder="Usuario" name="usuario"/> 
     <input type="password" placeholder="Contraseña" name="password"/>
+    <p>${request.auth}</p>
     <input type="submit" value="Entrar" name="enviar" id="login"/>
     <!--<button id="login" onclick="valida_envia()" >Entrar</button>-->
     <a href="registroprof.jsp" id="profform">Registro de Profesores</a>
 </form>  
-
-
-<aside>
-  <h3>Mail</h3>
-  <ul>
-    <li class="active">Compose</li>
-    <li>Inbox <span>14</span></li>
-    <li>Draft</li>
-    <li>Sent</li>
-    <li>Trash</li>
-    <li>Junk Mail</li>
-  </ul>
-</aside> 
-<div class="email-details">
-  <div><label for="">To:</label><input type="text" />
-  </div>
-  <div>
-  <label for="">Subject:</label><input type="text" />
-  </div>
-</div>
-
-<section>
-  <ul>
-    <li class="icon-bold"></li>
-    <li class="icon-italic"></li>
-    <li class="icon-underline"></li> 
-    <li class="icon-paste"></li>
-    <li class="icon-paper-clip"></li>
-    
-  </ul>
-  
-  <textarea></textarea> 
-  
-  <button>Send</button>
-</section>
 </body>
 </html>

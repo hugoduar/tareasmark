@@ -61,7 +61,7 @@ public class Login extends HttpServlet {
         try {
             if(idUsu!=0){
                 out.println("{\"auth\":true}");
-                strCoo = readUs.makeToken(idUsu, now, expDate, request.getRemoteAddr());
+                strCoo = readUs.makeToken(idUsu, now, expDate, request.getHeader("X-Forwarded-For"));
                 Cookie cookie = new Cookie("euler", strCoo);
                 response.addCookie(cookie);
                 session.setAttribute("id_usu", idUsu);
@@ -71,6 +71,7 @@ public class Login extends HttpServlet {
             }else{
                 response.sendRedirect("index.jsp");
                 session.setAttribute("auth", false);
+                request.setAttribute("auth", "Error en los datos");
                 out.println("{\"auth\":false}");
             }
         } catch (Exception ex) {

@@ -9,6 +9,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
@@ -31,7 +32,7 @@ public class ReadUsuario {
     }
     public String getNombreUsuario(int id){
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("usuario");
         DBObject query = new BasicDBObject("id_usu", id);
@@ -45,7 +46,7 @@ public class ReadUsuario {
     }
     public int usuarioId(String token){
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("token");
         DBObject query = new BasicDBObject("token", token);
@@ -62,7 +63,7 @@ public class ReadUsuario {
     }
     public void removeToken(String tkn){
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("token");
         DBObject docs = new BasicDBObject("token", tkn);
@@ -100,7 +101,7 @@ public class ReadUsuario {
     }
     public void removeAllCookies(int id){
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("token");
         DBObject docs = new BasicDBObject("id_usu", id);
@@ -110,7 +111,7 @@ public class ReadUsuario {
     public String makeToken(int id, String dateLastLogin, String expirate, String remoteAd){
         Token tkn = new Token(id, dateLastLogin, remoteAd);
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("token");
         DBObject token = new BasicDBObject("token", tkn.generateSecureToken()).
@@ -123,10 +124,17 @@ public class ReadUsuario {
         mc.close();
         return tkn.generateSecureToken();
     }
+    public void saveSessions(DBObject obj){
+        DBConf dbconf = new DBConf();
+        Mongo mc = dbconf.getMongoClient();
+        DB db = dbconf.getMongoDB(mc);
+        DBCollection coll = db.getCollection("oldtoken");
+        coll.insert(obj);
+   }
     public boolean tokenExist(String token){
         OperationFecha op = new OperationFecha();
         DBConf dbconf = new DBConf();
-        MongoClient mc = dbconf.getMongoClient();
+        Mongo mc = dbconf.getMongoClient();
         DB db = dbconf.getMongoDB(mc);
         DBCollection coll = db.getCollection("token");
         DBObject query = new BasicDBObject("token", token);
@@ -134,10 +142,12 @@ public class ReadUsuario {
         if(coll==null)return false;
         boolean res = false;
         while(cursor.hasNext()){
-            String date = (String) cursor.next().get("expirate");
+            DBObject n = cursor.next();
+            String date = (String) n.get("expirate");
             if(!op.caduco(date)) {
                 res = true;
             }else{
+                saveSessions(n);
                 coll.remove(query);
             }
         }

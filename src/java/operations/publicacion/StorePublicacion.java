@@ -5,6 +5,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.WriteResult;
 import com.mysql.jdbc.Connection;
@@ -37,7 +38,7 @@ public class StorePublicacion {
             idPub = rs.getInt("id_pub");
         }
         DBConf dbConf = new DBConf();
-        MongoClient mc = dbConf.getMongoClient();
+        Mongo mc = dbConf.getMongoClient();
         DB db = dbConf.getMongoDB(mc);
         DBCollection coll = db.getCollection("tareas_publicadas");
         System.out.println(coll.getCount());
