@@ -31,20 +31,28 @@ public class DBConf {
      * Configuracion para la conexion a la base de datos
      * "MYSQL"
      */
-    public static final String dbMysql = "tareasmark";
-    public static final String ipMysql = "mysql-quoda1.jelastic.servint.net";
-    public static final String userMysql = "gauss";
-    public static final String pwdMysql = "gauss";
-    public static final int portMysql = 3306;
+    public String dbMysql;
+    public String hostMysql;
+    public String userMysql;
+    public String pwdMysql;
+    public int portMysql;
     public DBConf() {
-        Properties prop = new Properties();
+        Properties propMongo = new Properties();
+        Properties propMysql = new Properties();
         try {
-            prop.load(new FileInputStream(System.getProperty("user.home") + "/mongo.cfg"));
-            this.dbMongo = prop.getProperty("db").toString();
-            this.hostMongo = prop.getProperty("host").toString();
-            this.pwdMongo = prop.getProperty("password").toString();
-            this.userMongo = prop.getProperty("user").toString();
-            this.portMongo = Integer.valueOf(prop.getProperty("port").toString());
+            propMongo.load(new FileInputStream(System.getProperty("user.home") + "/mongo.cfg"));
+            this.dbMongo = propMongo.getProperty("db").toString();
+            this.hostMongo = propMongo.getProperty("host").toString();
+            this.pwdMongo = propMongo.getProperty("password").toString();
+            this.userMongo = propMongo.getProperty("user").toString();
+            this.portMongo = Integer.valueOf(propMongo.getProperty("port").toString());
+            
+            propMysql.load(new FileInputStream(System.getProperty("user.home") + "/mysql.cfg"));
+            this.dbMysql = propMysql.getProperty("db").toString();
+            this.hostMysql = propMysql.getProperty("host").toString();
+            this.userMysql = propMysql.getProperty("user").toString();
+            this.pwdMysql = propMysql.getProperty("password").toString();
+            this.portMysql = Integer.parseInt(propMysql.getProperty("port").toString());
         } catch (Exception ex) {
             Logger.getLogger(DBConf.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,10 +84,10 @@ public class DBConf {
     public Connection getMysqlCon() throws ClassNotFoundException, SQLException{
         Connection con = null;
         //DefaultConfig
-	String URL = "jdbc:mysql://"+ipMysql+"/"+dbMysql;      
+	String URL = "jdbc:mysql://"+this.hostMysql+":"+String.valueOf(this.portMysql)+"/"+this.dbMysql;      
          //DefaultConfig
         Class.forName("com.mysql.jdbc.Driver");                 
-        con = (Connection) DriverManager.getConnection(URL,userMysql,pwdMysql);
+        con = (Connection) DriverManager.getConnection(URL,this.userMysql,this.pwdMysql);
         System.out.println("Conectado a la base de datos");
         return con;
     }
