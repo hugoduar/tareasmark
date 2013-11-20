@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package util.security;
 
 import org.junit.After;
@@ -42,7 +39,7 @@ public class CipherStandarTest {
     @Test
     public void testEncrypt() throws Exception {
         System.out.println("encrypt");
-        String unencryptedString = "securepassword";
+        String unencryptedString = "prueba";
         CipherStandar instance = new CipherStandar();
         String expResult = "CE6A4ADB795496FAD58055F30BBED4B8";
         String result = instance.encrypt("fibonacci",unencryptedString);
