@@ -23,6 +23,13 @@ h1{
   text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
   -webkit-font-smoothing: subpixel-antialiased;
 }
+#mensaje_error{
+  color: rgba(255, 255, 255, 0.99);
+  font-family: 'Helvetica', cursive;
+  font-size: 1em;
+  margin: 0.2em;
+  text-align: center;
+}
 #dform{
 position: absolute;
 top: 50%;

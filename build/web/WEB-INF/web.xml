@@ -33,14 +33,15 @@
       <param-value>
         Define
             projectName = "TareasMark"
-            internalServletPath = "logdigger" // Console will be available under this path
-        Collect logs errors history session-attrs
+            internalServletPath = "logdigger"
+        Collect 
+          logs errors 
+          session-attrs 
+          logs-log4j
         Store
             type = "jdbc"
             driverClass = "com.mysql.jdbc.Driver"
-            connectionString = "jdbc:mysql://mysql-quoda1.jelastic.servint.net/logdiggerdb?user=taylor&amp;password=taylor&amp;useUnicode=true&amp;characterEncoding=UTF-8"
-
-        // Activate Console (see module docs for details about access control)
+            connectionString = "jdbc:mysql://localhost:3306/logdigger?user=taylor&amp;password=taylor&amp;useUnicode=true&amp;characterEncoding=UTF-8"
         Console
             highlight = "util.security"
 
@@ -94,4 +95,8 @@
             index.jsp
         </welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
 </web-app>

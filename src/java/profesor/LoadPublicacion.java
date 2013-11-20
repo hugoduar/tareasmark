@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.publicacion.PublicacionFisica;
 import operations.publicacion.StorePublicacion;
+import util.date.ConfigDate;
 
 /**
  *
@@ -37,37 +38,6 @@ public class LoadPublicacion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoadPublicacion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoadPublicacion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
-    }
-
-    
-
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         String idGpo = request.getParameter("sel_idGpo");
@@ -75,7 +45,7 @@ public class LoadPublicacion extends HttpServlet {
         String fecha_entrega = request.getParameter("inp_fecha_entrega");
         String descripcion = request.getParameter("inp_descripcion");
         String tipo = request.getParameter("sel_tipo");
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat(ConfigDate.format);
         Date date = new Date();
         
         HttpSession session  = request.getSession();
@@ -85,7 +55,6 @@ public class LoadPublicacion extends HttpServlet {
                     fecha_entrega, dateFormat.format(date), 
                     (Integer)session.getAttribute("id_pro"), 
                     Integer.parseInt(idGpo));
-            
                     try {
                         boolean exito = stPub.savePublicacionFisica(pub);
                         if(!exito) {
@@ -100,6 +69,27 @@ public class LoadPublicacion extends HttpServlet {
         }else{
             out.print("{\"mensaje\":\"error en los datos\"}");
         }
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+
+    /**
+     * Handles the HTTP
+     * <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**

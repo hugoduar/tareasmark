@@ -27,5 +27,25 @@
                 </aside> 
             </nav>
         </header>
+        <section id="form-tarea">
+            <article id="publicacion-tarea">
+                <h2>Introduzca los datos necesarios</h2>
+                <form action="PublicarTarea" method="POST">
+                    <label for="titulo_tarea">Titulo de la tarea: </label>
+                    <input type="text" name="titulo_tarea" id="titulo_tarea"/>
+                    <label for="descripcion_tarea">Descripción de la tarea (detalles de como hacerla): </label>
+                    <textarea name="descripcion_tarea" id="descripcion_tarea"></textarea>
+                    <label for="fecha_entrega_tarea">Fecha de entrega: </label>
+                    <input type="date" id="fecha_entrega_tarea" name="fecha_entrega_tarea"/>
+                    <label for="grupo_tarea">Grupo: </label>
+                    <select id="grupo_tarea" name="grupo_tarea">
+                        <c:forEach var="grupo" items="${grupos}">
+                              <option value="${grupo}">${grupo}</option>
+                        </c:forEach>
+                    </select>
+                    <input type="submit" value="Publicar Tarea"/>
+                </form>
+            </article>
+        </section>
     </body>
 </html>

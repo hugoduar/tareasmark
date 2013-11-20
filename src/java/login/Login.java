@@ -27,7 +27,11 @@ import util.date.OperationFecha;
  * @author Hugo
  */
 public class Login extends HttpServlet {
-
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request,response);
+    }
 
     /**
      * Handles the HTTP
@@ -71,7 +75,7 @@ public class Login extends HttpServlet {
             }else{
                 response.sendRedirect("index.jsp");
                 session.setAttribute("auth", false);
-                request.setAttribute("auth", "Error en los datos");
+                request.setAttribute("mensaje_error", "Error en los datos");
                 out.println("{\"auth\":false}");
             }
         } catch (Exception ex) {

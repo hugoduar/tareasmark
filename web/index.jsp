@@ -24,10 +24,8 @@
     <h1>Hola</h1>
     <input type="text" placeholder="Usuario" name="usuario"/> 
     <input type="password" placeholder="Contraseña" name="password"/>
-    <p>${request.auth}</p>
+    <p id="mensaje_error">${mensaje_error}</p>
     <input type="submit" value="Entrar" name="enviar" id="login"/>
-    <!--<button id="login" onclick="valida_envia()" >Entrar</button>-->
-    <a href="registroprof.jsp" id="profform">Registro de Profesores</a>
 </form>  
 </body>
 </html>

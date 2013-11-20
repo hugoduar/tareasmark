@@ -79,6 +79,39 @@ public class PublicacionFisica implements Publicacion{
     public void setIdAsignatura(int id) {
         this.id_asignatura = id;
     }
+
+    @Override
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    @Override
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
     
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFecha_publicacion() {
+        return fecha_publicacion;
+    }
+
+    public void setFecha_publicacion(String fecha_publicacion) {
+        this.fecha_publicacion = fecha_publicacion;
+    }
+
+    public String getFecha_entrega() {
+        return fecha_entrega;
+    }
+
+    public void setFecha_entrega(String fecha_entrega) {
+        this.fecha_entrega = fecha_entrega;
+    }
     
 }

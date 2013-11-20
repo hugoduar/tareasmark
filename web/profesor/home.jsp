@@ -22,7 +22,7 @@
             <a href="../Logout">Salir</a>
             <nav id="lateral-menu">
                 <aside>
-                  <h3>Mail</h3>
+                  <h3>Menu</h3>
                   <ul>
                     <li><a href="#">Inicio</a></li>
                     <li><a href="entregas.jsp">Entregas</a></li>
@@ -34,7 +34,7 @@
         <section id="main">
             <section>
                 <div class="publicar">
-                    <form action="LoadPublicacion" id="form_publicar">
+                    <form action="../LoadPublicacion" id="form_publicar" method="POST">
                         <input type="text" name="titulo" placeholder="Titulo"/>
                         <input type="text" name="descripcion" placeholder="Descripción"/>
                         <select name="grupo">

@@ -19,9 +19,10 @@ public class StorePublicacion {
     public ResultSet savePublicacion(Publicacion pub) throws Exception{
         DBConf dbConf = new DBConf();
         Connection con = dbConf.getMysqlCon();
-        PreparedStatement ps =con.prepareStatement("INSERT INTO Publicacion (id_pro, id_gpo) VALUES(?,?)");
+        PreparedStatement ps =con.prepareStatement("INSERT INTO MPublicacion (id_pro, id_gpo, tit_tar) VALUES(?,?,?)");
         ps.setInt(1, pub.getIdProfesor());
         ps.setInt(2, pub.getIdGrupo());
+        ps.setString(3, pub.getTitulo());
         ResultSet rs = ps.getGeneratedKeys();
         ps.close();
         con.close();
@@ -40,10 +41,18 @@ public class StorePublicacion {
         DBConf dbConf = new DBConf();
         Mongo mc = dbConf.getMongoClient();
         DB db = dbConf.getMongoDB(mc);
-        DBCollection coll = db.getCollection("tareas_publicadas");
+        DBCollection coll = db.getCollection("publicacion");
         System.out.println(coll.getCount());
-        BasicDBObject obj = new BasicDBObject("id_pub", idPub).append("id_pro", pub.getIdProfesor())
-                .append("id_gpo", pub.getIdGrupo());
+        BasicDBObject doc = new BasicDBObject("id_pub", idPub)
+                                .append("id_pro", pub.getIdProfesor())
+                                .append("id_gpo", pub.getIdGrupo())
+                                .append("id_asi", pub.getIdAsignatura())
+                                .append("titulo", pub.getTitulo())
+                                .append("desc", pub.getDescripcion())
+                                .append("desc", pub.getDescripcion())
+                                .append("fec_pub", pub.getFecha_publicacion())
+                                .append("fec_ent", pub.getFecha_entrega());
+        coll.save(doc);
         mc.close();
         return true;
     }

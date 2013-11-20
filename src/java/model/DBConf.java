@@ -27,7 +27,7 @@ public class DBConf {
     public String userMongo;
     public String pwdMongo;
     public int portMongo;
-     /*
+     /*p
      * Configuracion para la conexion a la base de datos
      * "MYSQL"
      */
@@ -39,15 +39,19 @@ public class DBConf {
     public DBConf() {
         Properties propMongo = new Properties();
         Properties propMysql = new Properties();
+//        String fileMongo = System.getProperty("user.home") + "/mongo.cfg";
+        String fileMongo = "/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mongo.cfg";
+//        String fileMysql = System.getProperty("user.home") + "/mongo.cfg";
+        String fileMysql ="/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mysql.cfg";
         try {
-            propMongo.load(new FileInputStream(System.getProperty("user.home") + "/mongo.cfg"));
+            propMongo.load(new FileInputStream(fileMongo));
             this.dbMongo = propMongo.getProperty("db").toString();
             this.hostMongo = propMongo.getProperty("host").toString();
             this.pwdMongo = propMongo.getProperty("password").toString();
             this.userMongo = propMongo.getProperty("user").toString();
             this.portMongo = Integer.valueOf(propMongo.getProperty("port").toString());
             
-            propMysql.load(new FileInputStream(System.getProperty("user.home") + "/mysql.cfg"));
+            propMysql.load(new FileInputStream(fileMysql));
             this.dbMysql = propMysql.getProperty("db").toString();
             this.hostMysql = propMysql.getProperty("host").toString();
             this.userMysql = propMysql.getProperty("user").toString();

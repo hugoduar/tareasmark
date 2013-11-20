@@ -13,4 +13,6 @@ public interface Publicacion {
     public void setIdGrupo(int id);
     public int getIdAsignatura();
     public void setIdAsignatura(int id);
+    public String getTitulo();
+    public void setTitulo(String id);
 }
