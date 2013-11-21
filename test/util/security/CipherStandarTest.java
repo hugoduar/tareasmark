@@ -39,7 +39,7 @@ public class CipherStandarTest {
     @Test
     public void testEncrypt() throws Exception {
         System.out.println("encrypt");
-        String unencryptedString = "prueba";
+        String unencryptedString = "securepasswordsecurepassword";
         CipherStandar instance = new CipherStandar();
         String expResult = "CE6A4ADB795496FAD58055F30BBED4B8";
         String result = instance.encrypt("fibonacci",unencryptedString);

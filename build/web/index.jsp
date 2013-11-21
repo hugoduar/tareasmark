@@ -16,16 +16,19 @@
 <meta name="author" content="" />
 <link rel="shortcut icon" href="../favicon.ico"> 
 <link href="css/estilo.css" rel="stylesheet">
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/main.js" type="text/javascript"></script>
+<script src="./js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="./js/js.js" type="text/javascript"></script>
     </head>
     <body>
-<form action="Login" method="post" id="flogin">
-    <h1>Hola</h1>
+<form action="Redirigir" method="post" id="flogin">
+    <h1>Hola.</h1>
     <input type="text" placeholder="Usuario" name="usuario"/> 
-    <input type="password" placeholder="Contraseña" name="password"/>
-    <p id="mensaje_error">${mensaje_error}</p>
+    <input type="password" placeholder="Contraseña" name="contra"/>
     <input type="submit" value="Entrar" name="enviar" id="login"/>
+    <a href="registroprof.jsp" id="profform">Registro de Profesores</a>
 </form>  
+
+
+
 </body>
 </html>

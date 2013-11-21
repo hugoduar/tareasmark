@@ -96,7 +96,7 @@ public class ReadUsuario {
         while(rs.next()){
             idUsuario = rs.getInt("id_usu");
         }
-        
+        con.close();
         return idUsuario;
     }
     public void removeAllCookies(int id){

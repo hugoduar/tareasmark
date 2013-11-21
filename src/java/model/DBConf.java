@@ -39,10 +39,11 @@ public class DBConf {
     public DBConf() {
         Properties propMongo = new Properties();
         Properties propMysql = new Properties();
-//        String fileMongo = System.getProperty("user.home") + "/mongo.cfg";
-        String fileMongo = "/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mongo.cfg";
-//        String fileMysql = System.getProperty("user.home") + "/mongo.cfg";
-        String fileMysql ="/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mysql.cfg";
+        String fileMongo = System.getProperty("user.home") + "/mongo.cfg";
+        String fileMysql = System.getProperty("user.home") + "/mongo.cfg";
+        
+//        String fileMongo = "/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mongo.cfg";
+//        String fileMysql ="/usr/local/apache-tomcat-7.0.37/conf/Catalina/localhost/mysql.cfg";
         try {
             propMongo.load(new FileInputStream(fileMongo));
             this.dbMongo = propMongo.getProperty("db").toString();

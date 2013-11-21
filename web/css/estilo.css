@@ -1,19 +1,24 @@
-body {
+html {
   font-family: 'Helvetica', sans-serif;
   height: 100%;
   overflow: hidden;
-  background: url('../img/bg.png');
+  background: url('../img/bg.png') no-repeat center center fixed;
   background-size: cover;
-  position: static;
-  width: 100%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  height: 105%;
+  position: absolute;
+  width: 105%;
   right: -2.5%;
   left: -2.5%;
   top: -2.5%;
   bottom: -2.5%;
   z-index: -1;
 }
-
-
+nav{
+    position: static;
+}
 h1{
   color: rgba(255, 255, 255, 0.99);
   font-family: 'Helvetica', cursive;
@@ -23,40 +28,157 @@ h1{
   text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
   -webkit-font-smoothing: subpixel-antialiased;
 }
-#mensaje_error{
-  color: rgba(255, 255, 255, 0.99);
+h2{
+color: rgba(255, 255, 255, 0.99);
+  font-family: 'Helvetica', cursive;
+  font-size: 1.5em;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+h3{
+color: rgba(255, 255, 255, 0.99);
   font-family: 'Helvetica', cursive;
   font-size: 1em;
-  margin: 0.2em;
-  text-align: center;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+.contenido-tareas{
+position:relative;
+margin-top:-20%;
+margin-left:30%;
+margin-right:2.5%;
+}
+.titulo-tarea{
+margin-top:-2%;
+
+}
+.contenedor{
+margin-top: 5%;
+/*position: inherit;
+margin-left:32%;
+margin-top:-15%;
+padding-top: 5%;
+margin-top:-250px;*/
+border:2px solid rgba(40, 105, 200, 0.8);
+/*background: rgba(0,0,0,0.2);
+margin-right:5%;*/
+/*border-radius:25px;*/
+color:rgba(255, 255, 255, 0.99);
+text-align: justify;
+}
+.cabecera input{
+/*position:inherit;
+margin-bottom: -100px;
+margin-left:0px;
+display: inline-block;*/
+}
+
+.grupo-alumno{ 
+/*position:inherit;*/
+/*margin-right:0px;
+margin-bottom:0px;*/
+/*display:inline-block;
+background-color: rgba(40, 105, 200, 0.8);
+filter: alpha(0.5);
+opacity: 0.5;*/
+}
+
 #dform{
 position: absolute;
 top: 50%;
-left: 40%;
+left: 50%;
 margin: -150px 0 0 -150px;
-width:400px;
-height:300px;
+width:200px;
+height:150px;
 }
 
-#dform input[type="submit"]{
+/* #tabla{
+    position:relative;
+    top:30%;
+    left:35%;
+
+}
+
+#tabla table {
+background: rgba(40, 105, 200, 0.8);
+
+	font-size: 12px;
+	line-height: 24px;
+	
+	text-align: left;
+	/*width: 800px;
+}	*/
+/*
+#tabla th {
+
+	color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+}
+
+#tabla th:after {
+	
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+
+	width: 100%;
+}
+
+#tabla th:first-child {
+	
+}
+
+#tabla th:last-child {
+	
+}
+
+#tabla td {
+        background: rgba(0,0,0,0.3);
+	
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+       
+        font-size: 15px;
+        color: #fff;
+        
+}
+
+
+#tabla tbody:hover td {
+	color: transparent;
+	
+}
+
+#tabla tbody:hover tr:hover td {
+	color: white;
+
+}
+*/
+#dform input[type="submit"], input[type="submit"]{
 background-color: rgba(40, 105, 200, 0.8);
 color: #fff;
-height: 40px;
-width:420px;
+height: auto;
+width:auto;
 text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
 -webkit-font-smoothing: subpixel-antialiased;
 border-radius: 0px;
 }
-#dform input[type="submit"]:hover{
+#dform input[type="submit"]:hover, input[type="submit"]:hover{
  background: #2869c8;   
 }
-#form input:focus{
+#form input:focus, input:focus{
     box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
 }
-
+form input{
+    width: 100%;
+}
 #form input{
-width: 100%; 
+width: 100%;
 margin-bottom: 10px; 
 background: rgba(0,0,0,0.3);
 border: none;
@@ -81,6 +203,9 @@ transition: box-shadow .5s ease;
   border-radius: 1em;
   transform: translateZ(0);
 }
+#flogin input[type="text"], input[type="password"]{
+width:80%;
+}
 
 #login{
 background: rgba(40, 105, 200, 0.8);
@@ -95,7 +220,7 @@ background: rgba(40, 105, 200, 0.8);
 #login:hover{
 background: #2869c8;
 }
-form button:hover, section button:hover{
+form .button:hover, section .button:hover{
   background: #2869c8;
 }
 
@@ -107,15 +232,19 @@ form button:hover, section button:hover{
   position: absolute;
   width: 22em;
 }
-form input {
+form input, input{
 border: 0;
-font-size: 1.5em;
+font-size: 1em;
 margin-left: 10%;
 margin-top: .5em;
-width: 80%;
+width: 300px;
 height: 2em;
 }
-form button{
+form input [type="submit"]{
+    width:300px;
+    height:2em;
+}
+form .button{
   margin-left: 10%;
   margin-top: 1.5em;
   width: 80%;
@@ -123,8 +252,8 @@ form button{
 #profform{
 font-size: .8em;
 margin-left: 53%;
- color:white;
- text-shadow: 
+color:white;
+text-shadow: 
      -1px -1px 0 #000, 
      1px -1px 0 #000, 
      -1px 1px 0 #000, 
@@ -135,21 +264,24 @@ margin-left: 53%;
   text-decoration: none;
 }
 
-aside {
+/*aside {
   background: rgba(0, 0, 0, 0.4);
-  height: 100%;
+  right:-10%;
   left: -30%;
   opacity: 0;
   position: absolute;
   width: 25%;
-}
-aside ul {
+  margin-top:0px;
+  margin-right:60%;
+}*/
+/*aside^*/ ul{
   list-style: none;
   margin: 0;
-  padding: 0;
-  width: 100%;
+  margin-top:-170px;
+  padding:20px;
+  width: 25%;
 }
-aside ul li {
+/*aside*/ ul li {
   border-left: 0.6em solid rgba(255, 255, 255, 0.6);
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.9);
@@ -163,10 +295,10 @@ aside ul li {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3), -1px -1px 4px rgba(255, 255, 255, 0.1);
   width: 100%;
 }
-aside ul li:hover {
+/*aside*/ ul li:hover {
   border-left: 0.6em solid rgba(255, 255, 255, 0.99);
 }
-aside ul li span {
+/*aside*/ ul li span {
   background: #2869c8;
   float: right;
   line-height: 2;
@@ -176,10 +308,10 @@ aside ul li span {
   text-align: center;
   width: 2em;
 }
-aside ul .active {
+/*aside*/ ul .active {
   border-left: 0.6em solid rgba(40, 105, 200, 0.8);
 }
-aside ul .active:hover {
+/*aside*/ ul .active:hover {
   border-left: 0.6em solid #2869c8;
 }
 
@@ -250,7 +382,7 @@ section textarea {
   position: relative;
   width: 90%;
 }
-section button {
+section .button {
   float: right;
   margin-bottom: 1.6em;
   margin-right: 5%;
@@ -265,7 +397,7 @@ section button {
   transform: scale(2);
 }
 
-.subject-slide {
+/*.subject-slide {
   animation: 0.5s subject-slide ease-out;
   animation-delay: 1.5s;
   animation-fill-mode: backwards;
@@ -279,7 +411,7 @@ section button {
   animation-fill-mode: backwards;
   opacity: 1;
   left: 0;
-}
+}*/
 
 .section-slide {
   animation: 1s section-slide ease-out;
@@ -289,7 +421,7 @@ section button {
   right: 5%;
 }
 
-@keyframes subject-slide {
+/*@keyframes subject-slide {
   0% {
     top: -10em;
   }
@@ -299,16 +431,15 @@ section button {
   }
 }
 
-@keyframes aside-slide {
+/*@keyframes aside-slide {
   0% {
     left: -30%;
   }
-
-  100% {
+ {
     left: 0;
   }
 }
-
+*/
 @keyframes section-slide {
   0% {
     right: -70%;

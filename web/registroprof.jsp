@@ -18,7 +18,7 @@
             <input type="text" placeholder="RFC" name="rfc"/>
             <input type="text" placeholder="Número de profesor" name="noempleado"/>
             <input type="password" placeholder="Contraseña" name="contra"/> 
-            <input type="submit" value="Aceptar" name="Aceptar" id="button"/>
+            <input type="submit" value="Aceptar" name="Aceptar" class="button"/>
         </form>
         </div>
         
